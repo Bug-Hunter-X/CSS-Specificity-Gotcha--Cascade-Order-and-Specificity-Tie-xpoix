@@ -1,0 +1,21 @@
+The following CSS code snippet exhibits an uncommon error related to the specificity of selectors and the cascade:
+
+```css
+div {
+  color: blue;
+}
+
+.special div {
+  color: red;
+}
+
+#specific div {
+  color: green;
+}
+
+#specific .special div {
+  color: purple;
+}
+```
+
+The issue lies in the unexpected behavior when all selectors are applied to the same element.  While intuitively, one might assume that the `#specific .special div` selector would override all others due to its high specificity, the cascade interacts with specificity in a way that can be counterintuitive. The order in which CSS rules appear matters, particularly in resolving specificity ties.
