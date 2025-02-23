@@ -1,0 +1,42 @@
+The solution involves either reordering the CSS rules or using the `!important` flag (less recommended due to potential maintenance issues):
+
+**Solution 1: Reordering**
+
+```css
+div {
+  color: blue;
+}
+
+.special div {
+  color: red;
+}
+
+#specific div {
+  color: green;
+}
+
+#specific .special div {
+  color: purple; /* Now this will be applied first */
+}
+```
+
+**Solution 2: `!important` (use sparingly)**
+
+```css
+div {
+  color: blue;
+}
+
+.special div {
+  color: red;
+}
+
+#specific div {
+  color: green;
+}
+
+#specific .special div {
+  color: purple !important; /* Force this rule to always apply */
+}
+```
+By either reordering the rules to put the most specific styles first or using `!important`, the expected `purple` color is achieved.
